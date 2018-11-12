@@ -7,4 +7,5 @@ TO DO:
   Turbine:
     -Recherche de tuto pour Pyqt
   Olfg:
-    -Recherche de tuto pour Pyqt
+    -Programmation de la matrice
+    -Progra mouvement de base du joueur (premier essai sur python3)
