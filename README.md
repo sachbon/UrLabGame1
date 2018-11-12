@@ -23,3 +23,5 @@ TO DO:
 		(infos sur utilisation pyqt ou designer)
 	https://www.geeksforgeeks.org/python-designing-gui-applications-using-pyqt/
 		(l'url dit tout)
+
+/!\Find out how git works (git pull and push?) and add Florent to project
