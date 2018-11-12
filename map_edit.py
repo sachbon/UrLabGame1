@@ -1,9 +1,13 @@
+#create your board
 def create_board(hight,lenght):
 	board = []
 	for i in range(hight):
 		board.append([])
 		for k in range(lenght):
-			board[i].append([False,0])
+			if i == hight-1:
+				board[i].append([True,0])
+			else:
+				board[i].append([False,0])
 	return board
 
 #place a platform of given size
