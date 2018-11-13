@@ -9,3 +9,17 @@ TO DO:
   Olfg:
     -Programmation de la matrice
     -Progra mouvement de base du joueur (premier essai sur python3)
+
+
+
+(Turbine)Pyqt:
+	https://build-system.fman.io/pyqt5-tutorial 
+		(pas trop lu)
+	http://pyqt.sourceforge.net/Docs/PyQt4/classes.html 
+		(liste des instructions pyqt)
+	https://askubuntu.com/questions/651461/where-is-qt5-designer 
+		(forum avec solution pour install qt5-designer)
+	http://doc.qt.io/qt-5/qtdesigner-manual.html
+		(infos sur utilisation pyqt ou designer)
+	https://www.geeksforgeeks.org/python-designing-gui-applications-using-pyqt/
+		(l'url dit tout)
