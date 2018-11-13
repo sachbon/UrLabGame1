@@ -1,10 +1,10 @@
 #create your board
-def create_board(hight,lenght):
+def create_board(height,lenght):
 	board = []
-	for i in range(hight):
+	for i in range(height):
 		board.append([])
 		for k in range(lenght):
-			if i == hight-1:
+			if i == height-1:
 				board[i].append([True,0])
 			else:
 				board[i].append([False,0])
