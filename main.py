@@ -35,6 +35,11 @@ while running:
     startTime = time.time()
 
     screen.blit(Background01, (0, 0))
+    for y in range(len(board)):
+        for x in range(len(board[y])):
+            if board[y][x][0]:
+                screen.blit(platform00, (x*32, y*32))
+
     screen.flip()
 
     for event in pygame.event.get():
