@@ -1,3 +1,9 @@
+"""
+    Author : Fgrimau
+    Date : 13/11/2018
+    Project : Skeleton for player class
+"""
+
 class player(object):
 
     """
@@ -11,6 +17,11 @@ class player(object):
         self.pos = [posX, posY]
         self.color = color
 
+    """
+        function update : Moves the player by reading the movement array created by calling the function addMovement
+        inputs : timeElapsed, the amount of time that passed since the last loop tour
+                 map, the matrix representing the map
+    """
     def update(self, timeElapsed, map):
         continue
 
