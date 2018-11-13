@@ -15,7 +15,7 @@ board = [[[False, 0],[False, 0],[False, 0],[False, 0],[True , 0],[True , 0],[Fal
          [[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0]],
          [[False, 0],[True , 0],[True , 0],[True , 0],[True , 0],[True , 0],[True , 0],[False, 0]]]
 
-screen = gM((256, 192))
+screen = gM((256, 192), "L.A.G.")
 
 from constant import *
 
@@ -34,7 +34,7 @@ while running:
     timeElapsed = time.time() - startTime
     startTime = time.time()
 
-    screen.blit(imageTest, (0, 0))
+    screen.blit(Background01, (0, 0))
     screen.flip()
 
     for event in pygame.event.get():
