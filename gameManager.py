@@ -1,33 +1,19 @@
 import time
-import PyQt5
+import pygame
+from pygame.locals import *
 
 class gameManager(object):
 
-    def __init__(self, size):
+    def __init__(self, size, name):
         self.windowSize = size
         self.timeElapsed = 0
         self.startTime = time.time()
-        self.resetScreen()
 
-    def resetScreen(self):
-        self.screen = []
-        for y in range(self.windowSize[1]):
-            self.screen.append([])
-            for x in range(self.windowSize[0]):
-                self.screen[y].append(" ")
+        self.window = pygame.display.set_mode(size)
+        pygame.display.set_caption(name)
 
-    def blit(self, char, pos):
-        if len(char) == 1:
-            self.screen[pos[1]][pos[0]] = char
-        else:
-            self.screen[pos[1]][pos[0]] = char[0]
+    def blit(self, image, pos):
+        self.window.blit(image, pos)
 
     def flip(self):
-        print("-" * (self.windowSize[0]+2))
-        for y in range(self.windowSize[1]):
-            print('|', end="")
-            for x in range(self.windowSize[0]):
-                print(self.screen[y][x], end="")
-            print('|')
-        print("-" * (self.windowSize[0]+2))
-        self.resetScreen()
+        pygame.display.flip()
