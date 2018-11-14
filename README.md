@@ -9,6 +9,11 @@ TO DO:
   Olfg:
     -Programmation de la matrice
     -Progra mouvement de base du joueur (premier essai sur python3)
+  MiniGrim0:
+    -Programmation du main.py
+    -Mise en place du joueur
+    -Mise en place du gameManager
+    -Mise en place du mapManager
 
 
 
@@ -23,5 +28,3 @@ TO DO:
 		(infos sur utilisation pyqt ou designer)
 	https://www.geeksforgeeks.org/python-designing-gui-applications-using-pyqt/
 		(l'url dit tout)
-
-/!\Find out how git works (git pull and push?) and add Florent to project
