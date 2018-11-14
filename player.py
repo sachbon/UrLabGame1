@@ -17,13 +17,15 @@ class player(object):
         self.pos = pos
         self.color = color
         self.nextMovements = []
-        self.maxMovements = 1
+        self.maxMovements = 4
         self.img = img
         self.currentLife = 100
         self.maxLife = 100
 
         self.timeBetweenMovement = 0.5
         self.currentTimeBetweenMovement = 0
+
+        self.lastMovement = None
 
         self.state = 0
 
@@ -40,30 +42,34 @@ class player(object):
             self.currentTimeBetweenMovement += timeElapsed
             if self.currentTimeBetweenMovement >= self.timeBetweenMovement:
                 dir = self.nextMovements[0]
+                self.lastMovement = dir
                 if dir == "right":
                     self.pos[0] += 1
                 elif dir == "left":
+                    print("going left")
                     self.pos[0] -= 1
                 elif dir == "up":
-                    if self.pos[1] >= 0 and self.pos[1] < len(map) and self.pos[0] >= 0 and self.pos[0] < len(map[0]):
-                        for y in range(1, abs(self.pos[1] - len(map))):
-                            if map[self.pos[1]-y][x][0]:
-                                self.pos[1] = self.pos[1] - y - 1
-                                break
+                    self.pos[1] -= 1
                 elif dir == "down":
-                    if self.pos[1] >= 0 and self.pos[1] < len(map) and self.pos[0] >= 0 and self.pos[0] < len(map[0]):
-                        for y in range(1, len(map) - self.pos[1]):
-                            if map[self.pos[1]+y][self.pos[0]][0]:
-                                self.pos[1] = self.pos[1]+y-1
+                    self.pos[1] += 1
+
                 self.currentTimeBetweenMovement = 0
-                self.nextMovements.remove(0)
+                del self.nextMovements[0]
         else:
-            self.state = 1
+            self.state = 0
+
+        if self.lastMovement == "left" or self.lastMovement == "right":
+            if self.pos[0] >= 0 and self.pos[0] < len(map[0]):
+                if self.pos[1] >= 0 and self.pos[1] < len(map):
+                    if map[self.pos[1]+1][self.pos[0]][0] == False:
+                        self.pos[1] += 1
 
     def addMovement(self, movement):
-        if len(self.nextMovements) <= self.maxMovements:
+        if len(self.nextMovements) < self.maxMovements:
+            print("Adding movement " + movement)
             self.nextMovements.append(movement)
-        else:
+            print("Len of nextMovements = " + str(len(self.nextMovements)))
+        if len(self.nextMovements) >= self.maxMovements:
             self.state = 1
 
     def move(self, dir):

@@ -11,19 +11,21 @@ from player import player as pl
 #Implementing Board as a matrix wich contains the position of each platforms
 board = [[[False, 0],[False, 0],[False, 0],[False, 0],[True , 0],[True , 0],[False, 0],[False, 0]],
          [[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0]],
+         [[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0]],
          [[False, 0],[False, 0],[True , 0],[True , 0],[True , 0],[True , 0],[False, 0],[False, 0]],
+         [[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0]],
          [[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0]],
          [[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0]],
          [[False, 0],[True , 0],[True , 0],[True , 0],[True , 0],[True , 0],[True , 0],[False, 0]]]
 
 #Setting up the gameManager class, wich manipulate the screen, the time and the sounds
-gameManager = gM((256, 192), "L.A.G.")
-
+gameManager = gM((256, 256), "L.A.G.")
+gameManager.setGrid(True, 32)
 #importing every images loaded in constants
 from constant import *
 
 #Player Object
-player1 = pl(imPlayer, [2, 1], None)
+player1 = pl(imPlayer, [2, 0], None)
 
 #Setting up multiple variables
 timeLeft = 0 #Contains the time left for a player to choose his movements
@@ -49,9 +51,15 @@ while running:
 
     gameManager.flip() #Updates the screen
 
+    gameManager.update()
+
     for event in pygame.event.get():
         if event.type == QUIT:
             running = False
         elif event.type == KEYDOWN:
             if event.key == K_d:
+                player1.addMovement("right")
+            elif event.key == K_q:
                 player1.addMovement("left")
+            elif event.key == K_z:
+                player1.addMovement("up")
