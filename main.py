@@ -45,9 +45,13 @@ while running:
                 gameManager.blit(imPlatform00, (x*32, y*32)) #Blits a platform image if the x/y position on the matrix is true
 
     player1.draw(gameManager)
+    player1.update(gameManager.timeElapsed, board)
 
     gameManager.flip() #Updates the screen
 
     for event in pygame.event.get():
         if event.type == QUIT:
-running = False
+            running = False
+        elif event.type == KEYDOWN:
+            if event.key == K_d:
+                player1.addMovement("left")

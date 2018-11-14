@@ -1,6 +1,6 @@
 """
     Author : fgrimau @jurofloem
-    
+
 """
 
 import pygame
@@ -10,5 +10,6 @@ from pygame.locals import *
 pygame.init()
 
 #Loading images
-Background01 = pygame.image.load("sprites/background01.png").convert_alpha()
-platform00   = pygame.image.load("sprites/platform00.png").convert_alpha()
+imBackground01 = pygame.image.load("sprites/background01.png").convert_alpha()
+imPlatform00   = pygame.image.load("sprites/platform00.png").convert_alpha()
+imPlayer       = pygame.image.load("sprites/king.png").convert_alpha()
