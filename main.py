@@ -6,6 +6,7 @@
 
 import time
 from gameManager import gameManager as gM
+from player import player as pl
 
 #Implementing Board as a matrix wich contains the position of each platforms
 board = [[[False, 0],[False, 0],[False, 0],[False, 0],[True , 0],[True , 0],[False, 0],[False, 0]],
@@ -16,10 +17,13 @@ board = [[[False, 0],[False, 0],[False, 0],[False, 0],[True , 0],[True , 0],[Fal
          [[False, 0],[True , 0],[True , 0],[True , 0],[True , 0],[True , 0],[True , 0],[False, 0]]]
 
 #Setting up the gameManager class, wich manipulate the screen, the time and the sounds
-gameManagager = gM((256, 192), "L.A.G.")
+gameManager = gM((256, 192), "L.A.G.")
 
 #importing every images loaded in constants
 from constant import *
+
+#Player Object
+player1 = pl(imPlayer, [2, 1], None)
 
 #Setting up multiple variables
 timeLeft = 0 #Contains the time left for a player to choose his movements
@@ -34,13 +38,15 @@ currentStep = 0 #The current step of the game (0, player 1 inputs his next movem
 
 while running:
 
-    gameManagager.blit(Background01, (0, 0)) #Blits the background on the screen
+    gameManager.blit(imBackground01, (0, 0)) #Blits the background on the screen
     for y in range(len(board)):
         for x in range(len(board[y])):
             if board[y][x][0]:
-                gameManagager.blit(platform00, (x*32, y*32)) #Blits a platform image if the x/y position on the matrix is true
+                gameManager.blit(imPlatform00, (x*32, y*32)) #Blits a platform image if the x/y position on the matrix is true
 
-    gameManagager.flip() #Updates the screen
+    player1.draw(gameManager)
+
+    gameManager.flip() #Updates the screen
 
     for event in pygame.event.get():
         if event.type == QUIT:
