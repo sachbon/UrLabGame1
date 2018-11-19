@@ -30,7 +30,18 @@ class player(object):
         self.state = 0
 
     def draw(self, gM):
-        gM.blit(self.img, (self.pos[0]*32, self.pos[1]*32))
+        x_plus = 0
+        y_plus = 0
+        if self.state == 1 and self.currentTimeBetweenMovement != 0:
+            if self.nextMovements[0] == "right":
+                x_plus = self.currentTimeBetweenMovement*(32/self.timeBetweenMovement)
+            elif self.nextMovements[0] == "left":
+                x_plus = -self.currentTimeBetweenMovement*(32/self.timeBetweenMovement)
+            elif self.nextMovements[0] == "up":
+                y_plus = -self.currentTimeBetweenMovement*(64/self.timeBetweenMovement)
+            elif self.nextMovements[0] == "down":
+                y_plus = self.currentTimeBetweenMovement*(64/self.timeBetweenMovement)
+        gM.blit(self.img, (self.pos[0]*32 + x_plus, self.pos[1]*32 + y_plus))
 
     """
         function update : Moves the player by reading the movement array created by calling the function addMovement
@@ -46,23 +57,17 @@ class player(object):
                 if dir == "right":
                     self.pos[0] += 1
                 elif dir == "left":
-                    print("going left")
                     self.pos[0] -= 1
                 elif dir == "up":
-                    self.pos[1] -= 1
+                    self.pos[1] -= 2
                 elif dir == "down":
                     self.pos[1] += 1
 
                 self.currentTimeBetweenMovement = 0
                 del self.nextMovements[0]
+                self.fall(map)
         else:
             self.state = 0
-
-        if self.lastMovement == "left" or self.lastMovement == "right":
-            if self.pos[0] >= 0 and self.pos[0] < len(map[0]):
-                if self.pos[1] >= 0 and self.pos[1] < len(map):
-                    if map[self.pos[1]+1][self.pos[0]][0] == False:
-                        self.pos[1] += 1
 
     def addMovement(self, movement):
         if len(self.nextMovements) < self.maxMovements:
@@ -72,8 +77,12 @@ class player(object):
         if len(self.nextMovements) >= self.maxMovements:
             self.state = 1
 
-    def move(self, dir):
-        pass
+    def fall(self, map):
+        if self.lastMovement == "left" or self.lastMovement == "right":
+            if self.pos[0] >= 0 and self.pos[0] < len(map[0]):
+                if self.pos[1] >= 0 and self.pos[1] < len(map):
+                    if map[self.pos[1]+1][self.pos[0]][0] == False:
+                        self.nextMovements.insert(0, "down")
 
     def hit(self, hitpoints):
         self.currentLife -= hitpoints
