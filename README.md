@@ -1,5 +1,5 @@
 # UrLabGame1
-UrLab Game 1: Mini projet pour se familiariser avec pyqt et le game design en général. Bonne merde les gars
+UrLab Game 1: Mini projet pour se familiariser avec python en général, la bibliothèque graphique pygame et le game design en général. Bonne merde les gars
 
 TO DO:
   Storby:
@@ -13,9 +13,7 @@ TO DO:
     -Programmation du main.py
     -Mise en place du joueur
     -Mise en place du gameManager
-    -Mise en place du mapManager
-
-
+    -Mise en place du mapManager (Utilisation de Tiled pour créer des maps ?)
 
 (Turbine)Pyqt:
 	https://build-system.fman.io/pyqt5-tutorial
