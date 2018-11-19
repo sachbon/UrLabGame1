@@ -21,7 +21,7 @@ board = [[[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[Fal
          [[False, 0],[True , 0],[True , 0],[True , 0],[True , 0],[True , 0],[True , 0],[False, 0]]]
 
 #Setting up the gameManager class, wich manipulate the screen, the time and the sounds
-gameManager = gM((256, 256), "L.A.G.")
+gameManager = gM((320, 256), "L.A.G.")
 gameManager.setGrid(True, 32)
 #importing every images loaded in constants
 from constant import *
