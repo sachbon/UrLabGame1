@@ -103,7 +103,7 @@ class player(object):
         if self.movementState != "jumping":
             if self.pos[0] >= 0 and self.pos[0] < len(map[0]):
                 if self.pos[1] >= 0 and self.pos[1] < len(map):
-                    if map[self.pos[1]+1][self.pos[0]][0] == False:
+                    if map[self.pos[1]+1][self.pos[0]] == 0:
                         print("x=" + str(self.pos[0]) + "-y=" + str(self.pos[1]+1) + " is empty")
                         self.nextMovements.insert(0, "down")
 

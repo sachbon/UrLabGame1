@@ -7,18 +7,7 @@
 import time
 from gameManager import gameManager as gM
 from player import player as pl
-
-#Implementing Board as a matrix wich contains the position of each platforms
-board = [[[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0]],
-         [[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0]],
-         [[False, 0],[False, 0],[False, 0],[False, 0],[True , 0],[True , 0],[False, 0],[False, 0]],
-         [[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0]],
-         [[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0]],
-         [[False, 0],[False, 0],[True , 0],[True , 0],[True , 0],[True , 0],[False, 0],[False, 0]],
-         [[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0]],
-         [[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0]],
-         [[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0],[False, 0]],
-         [[False, 0],[True , 0],[True , 0],[True , 0],[True , 0],[True , 0],[True , 0],[False, 0]]]
+from mapManager import mapManager
 
 #Setting up the gameManager class, wich manipulate the screen, the time and the sounds
 gameManager = gM((320, 256), "L.A.G.")
@@ -28,6 +17,8 @@ from constant import *
 
 #Player Object
 player1 = pl(imPlayer, [2, 0], None)
+map1 = mapManager()
+map1.loadMap("test")
 
 #Setting up multiple variables
 timeLeft = 0 #Contains the time left for a player to choose his movements
@@ -43,13 +34,10 @@ currentStep = 0 #The current step of the game (0, player 1 inputs his next movem
 while running:
 
     gameManager.blit(imBackground01, (0, 0)) #Blits the background on the screen
-    for y in range(len(board)):
-        for x in range(len(board[y])):
-            if board[y][x][0]:
-                gameManager.blit(imPlatform00, (x*32, y*32)) #Blits a platform image if the x/y position on the matrix is true
+    map1.draw(gameManager)
 
     player1.draw(gameManager)
-    player1.update(gameManager.timeElapsed, board)
+    player1.update(gameManager.timeElapsed, map1.getMatrix())
 
     gameManager.flip() #Updates the screen
 

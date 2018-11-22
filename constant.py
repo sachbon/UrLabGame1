@@ -10,6 +10,6 @@ from pygame.locals import *
 pygame.init()
 
 #Loading images
-imBackground01 = pygame.image.load("sprites/background01.png").convert_alpha()
-imPlatform00   = pygame.image.load("sprites/platform00.png").convert_alpha()
-imPlayer       = pygame.image.load("sprites/king.png").convert_alpha()
+imBackground01 = pygame.image.load("assets/sprites/background01.png").convert_alpha()
+imPlatform00   = pygame.image.load("assets/sprites/platform00.png").convert_alpha()
+imPlayer       = pygame.image.load("assets/sprites/king.png").convert_alpha()
