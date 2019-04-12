@@ -4,19 +4,19 @@ UrLab Game 1: Mini projet pour se familiariser avec python en général, la bibl
 ## ROLES :
 
   Storby:
-    -Sprites pour J1 et J2
+    * Sprites pour J1 et J2
 
   Turbine:
-    - ?
+    * ?
 
   Olfg:
-    - Game design
+    * Game design
 
   MiniGrim0:
-    -Programmation du main.py
-    -Mise en place du joueur
-    -Mise en place du gameManager
-    -Mise en place du mapManager (Utilisation de Tiled pour créer des maps ?)
+    * Programmation du main.py
+    * Mise en place du joueur
+    * Mise en place du gameManager
+    * Mise en place du mapManager (Utilisation de Tiled pour créer des maps ?)
 
 ### Voir pygame
 
